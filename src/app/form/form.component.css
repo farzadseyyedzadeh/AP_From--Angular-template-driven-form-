@@ -1,5 +1,5 @@
 .container {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 input.ng-invalid.ng-touched {
@@ -8,4 +8,19 @@ input.ng-invalid.ng-touched {
 
 form {
   font-family: "MyFont";
+}
+
+.form-design {
+  width: 80%;
+  display: flex;
+
+  padding: 10px;
+}
+
+.form-control {
+  width: 50%;
+}
+
+input {
+  margin-right: 10px;
 }

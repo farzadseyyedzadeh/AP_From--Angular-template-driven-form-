@@ -9,25 +9,27 @@ import { NgForm } from '@angular/forms';
 export class FormComponent {
   @ViewChild('f', { static: false })
   signupForm!: NgForm;
-  defaultQuestion = 'teacher';
-  answer = '';
   genders = ['آقا', 'خانم'];
+  militaryService = ['معافیت دائم', 'معافیت تحصیلی', ' پایان خدمت'];
+  maritalStatus = ['مجرد', 'متاهل'];
   user = {
-    username: '',
-    email: '',
-    secretQuestion: '',
-    answer: '',
+    fullName: '',
     gender: '',
+    military: '',
+    marital: '',
+    email: '',
+    number: '',
   };
   submitted = false;
 
   onSubmit() {
     this.submitted = true;
-    this.user.username = this.signupForm.value.userData.username;
-    this.user.email = this.signupForm.value.userData.email;
-    this.user.secretQuestion = this.signupForm.value.secret;
-    this.user.answer = this.signupForm.value.questionAnswer;
+    this.user.fullName = this.signupForm.value.userData.fullName;
     this.user.gender = this.signupForm.value.gender;
+    this.user.military = this.signupForm.value.userData.military;
+    this.user.marital = this.signupForm.value.userData.marital;
+    this.user.email = this.signupForm.value.userData.email;
+    this.user.number = this.signupForm.value.userData.number;
 
     this.signupForm.reset();
   }

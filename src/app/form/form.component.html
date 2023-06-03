@@ -1,88 +1,99 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
-          <div class="form-group">
-            <label for="username">نام کاربری</label>
-            <input
-              type="text"
-              id="username"
-              class="form-control"
-              ngModel
-              name="username"
-              required
-            />
-          </div>
-          <p *ngIf="!userData.valid && userData.touched">
-            نام کاربری صحیح نمی باشد
-          </p>
-          <div class="form-group">
-            <label for="email">ایمیل</label>
-            <input
-              type="email"
-              id="email"
-              class="form-control"
-              ngModel
-              name="email"
-              required
-              email
-              #email="ngModel"
-            />
-            <span class="help-block" *ngIf="!email.valid && email.touched"
-              >لطفاَ ایمیل را به درستی وارد نمایید</span
-            >
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="secret">سوال شخصی</label>
-          <select
-            id="secret"
-            class="form-control"
-            [ngModel]="defaultQuestion"
-            name="secret"
-          >
-            <option value="pet">اولین حیوان خانگی شما؟</option>
-            <option value="teacher">اولین معلم شما؟</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <textarea
-            name="questionAnswer"
-            rows="3"
-            class="form-control"
-            [(ngModel)]="answer"
-          ></textarea>
-        </div>
-        <p>پاسخ شما : {{ answer }}</p>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+      <div class="form-group form-design">
+        <label for="fullName">نام و نام خانوادگی : </label>
+        <input
+          type="text"
+          id="fullName"
+          class="form-control"
+          ngModel
+          name="fullName"
+          required
+        />
+      </div>
+      <div class="form-group form-design">
+        <label for="fullName">جنسیت :</label>
         <div class="radio" *ngFor="let gender of genders">
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              ngModel
-              [value]="gender"
-              required
-            />
-            {{ gender }}
-          </label>
+          <input type="radio" name="gender" ngModel [value]="gender" required />
+          {{ gender }}
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
-          تایید و ارسال
-        </button>
-      </form>
+      </div>
+      <div class="form-group form-design">
+        <label for="militaryService"> وضعیت نظام وظیفه :</label>
+        <div class="radio" *ngFor="let military of militaryService">
+          <input
+            type="radio"
+            name="military"
+            ngModel
+            [value]="military"
+            required
+          />
+          {{ military }}
+        </div>
+      </div>
+      <div class="form-group form-design">
+        <label for="fullName">وضعیت تاهل :</label>
+        <div class="radio" *ngFor="let marital of maritalStatus">
+          <input
+            type="radio"
+            name="martial"
+            ngModel
+            [value]="marital"
+            required
+          />
+          {{ marital }}
+        </div>
+      </div>
+      <div class="form-group form-design">
+        <label for="email">ایمیل : </label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          ngModel
+          name="email"
+          required
+          email
+          #email="ngModel"
+        />
+        <span class="help-block" *ngIf="!email.valid && email.touched"
+          >لطفاَ ایمیل را به درستی وارد نمایید</span
+        >
+      </div>
+      <div class="form-group form-design">
+        <label for="number">شماره تماس :</label>
+        <input
+          type="number"
+          id="number"
+          class="form-control"
+          ngModel
+          name="number"
+          required
+          number
+          #number="ngModel"
+        />
+        <span class="help-block" *ngIf="!number.valid && number.touched"
+          >لطفاَ شماره تماس خود را به درستی وارد نمایید</span
+        >
+      </div>
     </div>
-  </div>
-  <hr />
-  <div class="row" *ngIf="submitted">
-    <div class="col-xs-12">
-      <h3>اطلاعات وارده شما :</h3>
-      <p>نام کاربری : {{ user.username }}</p>
-      <p>ایمیل : {{ user.email }}</p>
-      <p>سوال شخصی شما : {{ user.secretQuestion }}</p>
-      <p>پاسخ : {{ user.answer }}</p>
-      <p>جنسیت شما : {{ user.gender }}</p>
-    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+      تایید و ارسال
+    </button>
+  </form>
+</div>
+
+<hr />
+<div class="row" *ngIf="submitted">
+  <div class="col-xs-12">
+    <h4>اطلاعات وارده شما :</h4>
+    <p>نام و نام خانوادگی : {{ user.fullName }}</p>
+    <p>جنسیت : {{ user.gender }}</p>
+    <p>وضعیت نظام وظیفه : {{ user.military }}</p>
+    <p>وضعیت تاهل : {{ user.marital }}</p>
+    <p>ایمیل : {{ user.email }}</p>
+    <p>شماره تماس : {{ user.number }}</p>
   </div>
 </div>
