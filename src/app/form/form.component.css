@@ -1,9 +1,12 @@
 .container {
-  margin-top: 25px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 15px;
 }
 
 input.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 2px solid red;
 }
 
 form {
@@ -11,9 +14,9 @@ form {
 }
 
 .form-design {
-  width: 80%;
   display: flex;
-
+  align-items: center;
+  justify-content: flex-start;
   padding: 10px;
 }
 
@@ -22,5 +25,9 @@ form {
 }
 
 input {
-  margin-right: 10px;
+  margin-right: 30px;
+}
+
+span {
+  margin-right: 20px;
 }

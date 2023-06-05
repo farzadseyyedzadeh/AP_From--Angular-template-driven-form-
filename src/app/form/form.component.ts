@@ -25,7 +25,7 @@ export class FormComponent {
   onSubmit() {
     this.submitted = true;
     this.user.fullName = this.signupForm.value.userData.fullName;
-    this.user.gender = this.signupForm.value.gender;
+    this.user.gender = this.signupForm.value.userData.gender;
     this.user.military = this.signupForm.value.userData.military;
     this.user.marital = this.signupForm.value.userData.marital;
     this.user.email = this.signupForm.value.userData.email;
